@@ -1,0 +1,32 @@
+***
+*** PVopensunny -- OpenSource communication with SMA Readers
+***
+This is a modified version of the original OpenSunny, adapted for PVDiary
+PVDiary is a tool to measure the productivity of solar-panels. (www.zonstraal.be)
+***
+*** Thanks to
+***
+
+https://github.com/simonswine/opensunny (original creator)
+
+**
+** Compile 
+**
+To compile just enter "make" in the directory where the sources are.
+If all is ok copy "opensunny" to your executable path.
+
+**
+** Usage
+**
+
+Example usage:
+
+             bluetooth address    fromdate    todate
+opensunny -i 00:80:25:22:C6:3B -f yyyymmdd -t yyyymmdd
+
+To find the bluetooth-address of the sma-collector use "hcitool scan"
+
+Then adjust the import_params in "/etc/pvdiary.cfg"
+
+ import_params = "CSV flags csvfile serial OpenSunny bluetooth_address_collector debug"
+ example: "CSV 0 demo1 0 OpenSunny 00:80:25:26:8E:81 0"
